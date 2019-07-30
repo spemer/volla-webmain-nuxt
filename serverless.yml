@@ -24,7 +24,7 @@ plugins:
 
 package:
   excludeDevDependencies: true
-  exclude: # 용량을 줄이기 위해서 static 폴더를 제외하고 불포함
+  exclude:
     - .**
     - .**/*
     - pages/**
@@ -60,3 +60,15 @@ functions:
       - http:
           path: '{proxy+}'
           method: get
+
+custom:
+  apigwBinary:
+    types:
+      - '*/*'
+  customDomain:
+    domainName: '${self:provider.stage}-sls-webpage.volla.live'
+    stage: ${self:provider.stage}
+    basePath:
+    createRoute53Record: true
+    certificateName: '*.volla.live'
+    endpointType: 'regional'
