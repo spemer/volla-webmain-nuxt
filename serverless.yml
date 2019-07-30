@@ -1,0 +1,62 @@
+service: vollaWebMainNuxt
+
+provider:
+  name: aws
+  apiName: ${opt:stage, 'dev'}-rsfiveVollaWebmainNuxt
+  endpointType: regional
+  role: arn:aws:iam::771405576262:role/VollaLambdaExecutor
+  runtime: nodejs10.x
+  memorySize: 512
+  timeout: 12
+
+  environment: # 환경 변수
+    STAGE: ${opt:stage, 'dev'}
+
+tracing:
+  lambda: true
+  apiGateway: true
+
+plugins:
+  - serverless-offline
+  - serverless-domain-manager
+  - serverless-apigw-binary
+  - serverless-plugin-warmup
+
+package:
+  excludeDevDependencies: true
+  exclude: # 용량을 줄이기 위해서 static 폴더를 제외하고 불포함
+    - .**
+    - .**/*
+    - pages/**
+    - components/**
+    - store/**
+    - assets/**
+    - layouts/**
+    - plugins/**
+    - test/**
+    - middleware/**
+    - README.md
+    - package.json
+    - package-lock.json
+    - node_modules/**/*.md
+    - node_modules/**/bin/**
+  include:
+    - server/**
+    - config/index.js
+    - config/config.js
+    - nuxt.config.js
+    - .nuxt/**
+    - node_modules/autoprefixer/**
+    - node_modules/babel-runtime/**
+    - node_modules/babel-extract-comments/**
+
+functions:
+  render:
+    handler: server/handler.render # server/handler.js의 render 함수를 가리킴
+    events:
+      - http:
+          path: '/'
+          method: get
+      - http:
+          path: '{proxy+}'
+          method: get

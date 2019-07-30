@@ -1,0 +1,39 @@
+{
+  "name": "volla-webmain-nuxt",
+  "version": "1.0.0",
+  "description": "volla webmain nuxt",
+  "author": "Riversouthfive",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "build": "nuxt build",
+    "deploy": "npm run build && sls deploy",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.5.4",
+    "@nuxtjs/pwa": "^3.0.0-beta.16",
+    "aws-serverless-express": "^3.3.6",
+    "cross-env": "^5.2.0",
+    "express": "^4.17.1",
+    "nuxt": "^2.8.1",
+    "serverless": "^1.48.4"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^1.0.1",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.1",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-nuxt": ">=0.4.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "nodemon": "^1.18.9",
+    "prettier": "^1.18.2",
+    "serverless-apigw-binary": "^0.4.4",
+    "serverless-domain-manager": "^3.2.6",
+    "serverless-offline": "^5.8.0",
+    "serverless-plugin-warmup": "^4.7.0-rc.1"
+  }
+}
