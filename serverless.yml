@@ -20,7 +20,7 @@ plugins:
   - serverless-offline
   - serverless-domain-manager
   - serverless-apigw-binary
-  - serverless-plugin-warmup
+  # - serverless-plugin-warmup
 
 package:
   excludeDevDependencies: true
