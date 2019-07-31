@@ -1,0 +1,31 @@
+@charset 'UTF-8';
+
+// modules
+@import '~/assets/styles/modules/_spoqa.scss',
+'~/assets/styles/modules/_grid.scss',
+'~/assets/styles/modules/_color.scss',
+'~/assets/styles/modules/_mqbp.scss',
+'~/assets/styles/modules/_global.scss',
+'~/assets/styles/modules/_layout.scss',
+'~/assets/styles/modules/_class.scss',
+'~/assets/styles/modules/_aos.scss'
+;
+
+// pages
+@import '~/assets/styles/pages/_home.scss',
+'~/assets/styles/pages/_sellerForm.scss',
+'~/assets/styles/pages/_tos.scss',
+'~/assets/styles/pages/_notice.scss'
+;
+
+// components/home
+@import '~/assets/styles/components/home/_hero.scss',
+'~/assets/styles/components/home/_service.scss'
+;
+
+// components/seller
+@import '~/assets/styles/components/seller/_videoEmbed.scss',
+'~/assets/styles/components/seller/_statsList.scss',
+'~/assets/styles/components/seller/_benefits.scss',
+'~/assets/styles/components/seller/_startWith.scss'
+;

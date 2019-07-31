@@ -1,0 +1,50 @@
+#videoEmbed {
+  padding: $grid16x 0 $grid20x;
+
+  .easy__text--title {
+    padding: $grid4x 0;
+    @include font-size($grid7x);
+
+    @media #{$tablet} {
+      @include font-size($grid6x);
+    }
+
+    @media #{$ip6} {
+      @include font-size($grid5x);
+    }
+
+    @media #{$mini} {
+      @include font-size($grid4x);
+    }
+  }
+
+  iframe {
+    width: 100%;
+    height: 480px;
+    margin: 0 auto;
+    display: inline-block;
+  }
+
+  @media #{$pablet} {
+    height: auto !important;
+  }
+
+  .videoEmbed__from {
+    text-align: center;
+    margin-top: $grid2x;
+
+    .videoEmbed__from--text {
+      font-weight: 300;
+      display: inline-block;
+
+      .videoEmbed__from--link {
+        cursor: pointer;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .global__cta {
+    margin-bottom: $grid12x;
+  }
+}
