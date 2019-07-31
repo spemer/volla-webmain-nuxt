@@ -1,7 +1,7 @@
 <template lang="pug">
   div#tosDetails
     div#terms
-      router-view.terms-wrapper
+      nuxt.terms-wrapper
 </template>
 
 <script>

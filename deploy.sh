@@ -144,9 +144,7 @@ git_push() {
         git push origin;
         printf "\n"
         echo "${BOLD}${PURPLE}🔥 Push: GitHub 🔥${RESET}"
-        git checkout master;
         git push github;
-        git checkout development;
         break;;
       [Nn]* ) return 0;;
       * ) echo "${YELLOW}Please answer yes or no.${RESET}";;

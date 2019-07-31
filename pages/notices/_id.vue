@@ -17,7 +17,7 @@
 </template>
 
 <script>
-// import NOTICE_ENTRIES from '~/static/data/notice.json'
+// import NOTICE_ENTRIES from '~/assets/json/notice.json'
 import { dateFormatting } from '~/mixins/dateFormatting'
 import { globalVar } from '~/assets/js/globalVar'
 
