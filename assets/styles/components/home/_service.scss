@@ -1,0 +1,74 @@
+#service,
+#benefits,
+#startWith,
+#statsList {
+  $BaseURI: '~assets/img/dist/serviceImage_';
+  $ext: 'png';
+
+  overflow-y: hidden;
+  padding-top: $grid16x;
+  padding-bottom: $grid12x;
+
+  .service__title {
+    margin-bottom: $grid4x;
+  }
+
+  .service__card {
+    @include grid-layout(3, 100px, $grid16x);
+
+    @media #{$pro2} {
+      @include grid-layout(1, 100px, $grid4x);
+    }
+
+    .service__card--each {
+
+      .section__subtitle {
+
+        @media #{$pro2} {
+          padding: 0 $grid32x;
+        }
+
+        @media #{$landsc} {
+          padding: 0 $grid16x;
+        }
+
+        @media #{$pablet} {
+          padding: 0 $grid4x;
+        }
+      }
+
+      .service__card--img {
+
+        &.service {
+          height: 480px;
+          margin: 0 auto;
+          @include drop-shadow();
+          @include setGridIcons($BaseURI, $ext);
+        }
+
+        @media #{$pro2} {
+          width: 280px;
+        }
+      }
+
+      .service__card--title,
+      .service__card--text {
+        text-align: center;
+        margin-top: $grid8x;
+
+        @media #{$pablet} {
+          margin-top: $grid4x;
+        }
+      }
+
+      .service__card--title {
+        font-weight: 500;
+        margin: $grid4x 0 $grid6x;
+      }
+
+      .service__card--text {
+        margin: -#{$grid4x} 0 $grid6x 0;
+      }
+    }
+  }
+}

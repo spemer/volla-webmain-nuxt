@@ -1,0 +1,78 @@
+#benefits {
+  $BaseURI: '~assets/img/dist/benefits_';
+  $BaseURI_2: '~assets/img/dist/benefits2_';
+
+  padding-bottom: $grid24x;
+  border-top: 1px solid $texteee;
+
+  .section__title {
+    margin-bottom: $grid8x;
+  }
+
+  .global__cta {
+    margin-top: -#{$grid8x};
+  }
+
+  .service__card {
+    padding: 0 $grid4x $grid4x;
+
+    @media #{$middle} {
+      padding: 0 0 $grid4x;
+    }
+
+    @media #{$pablet} {
+      padding: 0 $grid8x $grid4x;
+    }
+
+    .service__card--each {
+
+      .service__card--img {
+
+        &.seller {
+          width: 80px;
+          height: 80px;
+          margin-bottom: $grid4x !important;
+
+          &.seller1 {
+            @include setGridIcons($BaseURI);
+          }
+
+          &.seller2 {
+            @include setGridIcons($BaseURI_2);
+          }
+
+          @media #{$pro2} {
+            margin-bottom: $grid8x !important;
+          }
+        }
+      }
+    }
+  }
+
+  .service__card {
+
+    .service__card--text {
+      padding: $grid4x $grid4x;
+
+      @media #{$pablet} {
+        padding: 0 $grid8x;
+      }
+    }
+  }
+
+  &.benefits2 {
+    padding-bottom: $grid8x;
+
+    .subtitle {
+      @include font-size($grid8x);
+
+      @media #{$pablet} {
+        @include font-size($grid7x);
+      }
+
+      @media #{$ip6} {
+        @include font-size($grid5x);
+      }
+    }
+  }
+}
