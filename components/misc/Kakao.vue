@@ -11,21 +11,12 @@
 
 <script>
 export default {
-  head: {
-    script: [
-      {
-        src: 'https://developers.kakao.com/sdk/js/kakao.min.js'
-      }
-    ]
-  },
-
   methods: {
     plusFriendChat: () => {
-      console.log('Kakao')
-      // Kakao.init(process.env.KAKAO_KEY)
-      // Kakao.PlusFriend.chat({
-      //   plusFriendId: process.env.KAKAO_URL
-      // })
+      window.Kakao.init(process.env.KAKAO_KEY)
+      window.Kakao.PlusFriend.chat({
+        plusFriendId: process.env.KAKAO_URL
+      })
     }
   }
 }
@@ -34,24 +25,23 @@ export default {
 <style lang="scss" scoped>
 #plusfriend-addfriend-button {
   &:not(.contact__each) {
-    // @keyframes popup {
-    //   from {
-    //     opacity: 0;
-    //     @include transform(scale(0));
-    //   }
+    @keyframes popup {
+      from {
+        opacity: 0;
+        @include transform(scale(0));
+      }
 
-    //   to {
-    //     opacity: 1;
-    //     @include transform(scale(1));
-    //   }
-    // }
+      to {
+        opacity: 1;
+        @include transform(scale(1));
+      }
+    }
 
     right: $grid4x;
     bottom: $grid6x;
     position: fixed;
-    // animation: popup 0.25s ease-in-out 2.5s 1 forwards;
-    @include transform(scale(1));
-    // @include transform(scale(0));
+    animation: popup 0.25s ease-in-out 2.5s 1 forwards;
+    @include transform(scale(0));
 
     img {
       cursor: pointer;

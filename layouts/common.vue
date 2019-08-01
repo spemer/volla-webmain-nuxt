@@ -4,6 +4,9 @@
     nuxt
     Footer
     Kakao
+    script(
+      src="https://developers.kakao.com/sdk/js/kakao.min.js"
+    )
 </template>
 
 <script>

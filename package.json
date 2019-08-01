@@ -29,6 +29,8 @@
     "pug-plain-loader": "^1.0.0",
     "serverless": "^1.48.4",
     "vue-clipboard2": "^0.3.0",
+    "vue-markdown-loader": "^2.4.1",
+    "vue-meta": "^2.2.0",
     "vue-progressbar": "^0.7.5",
     "vue-scrollto": "^2.15.0",
     "vue-toasted": "^1.1.27",
