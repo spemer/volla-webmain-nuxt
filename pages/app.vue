@@ -3,7 +3,7 @@
     div.container
       div.redirect__wrapper
         img.redirect__wrapper--img(
-          src="~/assets/img/dist/launcher.svg"
+          src="/img/dist/launcher.svg"
         )
         p.redirect__wrapper--text {{ serviceKo }}
 

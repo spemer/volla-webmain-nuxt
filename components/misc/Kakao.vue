@@ -5,7 +5,7 @@
     img#kakao__pf(
       title="카카오톡 문의하기"
       @click="plusFriendChat"
-      src="~/assets/img/dist/kakao.svg"
+      src="/img/dist/kakao.svg"
     )
 </template>
 

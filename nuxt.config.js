@@ -10,6 +10,9 @@ module.exports = {
    ** Headers of the page
    */
   head: {
+    htmlAttrs: {
+      lang: 'ko'
+    },
     title: 'Volla',
     meta: [
       { charset: 'utf-8' },
@@ -25,16 +28,32 @@ module.exports = {
         content: 'Volla - 라이브 방송으로 만나는 오프라인 쇼핑'
       },
       {
-        itemprop: 'description',
-        content: 'Volla - 라이브 방송으로 만나는 오프라인 쇼핑'
+        name: 'robots',
+        content: 'index, follow'
       },
       {
         property: 'og:description',
         content: 'Volla - 라이브 방송으로 만나는 오프라인 쇼핑'
       },
       {
+        property: 'og:image',
+        content: '/img/dist/gpstore_feature_graphic.png'
+      },
+      {
         name: 'twitter:description',
         content: 'Volla - 라이브 방송으로 만나는 오프라인 쇼핑'
+      },
+      {
+        name: 'twitter:image',
+        content: '/img/dist/gpstore_feature_graphic.png'
+      },
+      {
+        itemprop: 'description',
+        content: 'Volla - 라이브 방송으로 만나는 오프라인 쇼핑'
+      },
+      {
+        itemprop: 'image',
+        content: '/img/dist/gpstore_feature_graphic.png'
       },
       {
         itemprop: 'keywords',
@@ -53,6 +72,11 @@ module.exports = {
       {
         name: 'fb:admins',
         content: '2378294292413002'
+      },
+      // icons & cards
+      {
+        name: 'theme-color',
+        content: '#ffffff'
       }
     ],
     script: [
@@ -86,9 +110,80 @@ module.exports = {
           'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css',
         rel: 'stylesheet',
         type: 'text/css'
-      }
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '57x57',
+        href: '/favicon/apple-icon-57x57.png'
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '60x60',
+        href: '/favicon/apple-icon-60x60.png'
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '72x72',
+        href: '/favicon/apple-icon-72x72.png'
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '76x76',
+        href: '/favicon/apple-icon-76x76.png'
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '114x114',
+        href: '/favicon/apple-icon-114x114.png'
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '120x120',
+        href: '/favicon/apple-icon-120x120.png'
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '144x144',
+        href: '/favicon/apple-icon-144x144.png'
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '152x152',
+        href: '/favicon/apple-icon-152x152.png'
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/favicon/apple-icon-180x180.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '192x192',
+        href: '/favicon/android-icon-192x192.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/favicon/android-icon-32x32.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '96x96',
+        href: '/favicon/android-icon-96x96.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/favicon/android-icon-16x16.png'
+      },
+      { rel: 'manifest', href: '/favicon/manifest.json' }
     ]
   },
+
   performance: {
     gzip: false
   },
@@ -107,10 +202,10 @@ module.exports = {
           next('/sellerform')
         })
       }
-    ]
-    // scrollBehavior: function (to, from, savedPosition) {
-    //   return { x: 0, y: 0 }
-    // }
+    ],
+    scrollBehavior(to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    }
   },
 
   /*
