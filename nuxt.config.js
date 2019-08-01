@@ -36,6 +36,18 @@ module.exports = {
         src: 'https://developers.kakao.com/sdk/js/kakao.min.js'
       }
     ],
+    script: [
+      {
+        defer: 'true',
+        src: 'https://use.fontawesome.com/releases/v5.8.1/js/all.js',
+        integrity:
+          'sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ',
+        crossorigin: 'anonymous'
+      },
+      {
+        src: 'https://developers.kakao.com/sdk/js/kakao.min.js'
+      }
+    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
