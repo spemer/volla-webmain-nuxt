@@ -70,6 +70,7 @@
 
         label.sellerform__form--checkbox(
           for="checkbox_1"
+          style="font-weight: 700"
         ) {{ marketingTerms.personal.title }}
           input(
             id="checkbox_1"
@@ -104,7 +105,6 @@ import { mapState, mapMutations } from 'vuex'
 import Header from '~/components/Header'
 import Footer from '~/components/Footer'
 import Kakao from '~/components/misc/Kakao'
-import { toast } from '~/mixins/toast'
 import { globalVar } from '~/assets/js/globalVar'
 
 export default {
@@ -115,8 +115,6 @@ export default {
     Footer,
     Kakao
   },
-
-  mixins: [toast],
 
   data: () => ({
     serviceKo: globalVar.serviceKo,

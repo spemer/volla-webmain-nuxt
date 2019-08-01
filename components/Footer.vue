@@ -7,16 +7,16 @@
         p.footer__copyright--text
           | ⓒ {{ thisYear }} {{ companyName }}., All Rights Reserved.
 
-        //- p.footer__terms(
-        //-     v-for="(section, index) in Object.keys(tosEntries)"
-        //-     :key="index"
-        //-   )
-        //-   span.footer__terms--each(
-        //-     v-for="entry in tosEntries[section]"
-        //-     :key="entry.id"
-        //-     target="_blank"
-        //-     @click="tosRouter(entry.id, section)"
-        //-   ) {{ entry.title }}
+        p.footer__terms(
+            v-for="(section, index) in Object.keys(tosEntries)"
+            :key="index"
+          )
+          span.footer__terms--each(
+            v-for="entry in tosEntries[section]"
+            :key="entry.id"
+            target="_blank"
+            @click="tosRouter(entry.id, section)"
+          ) {{ entry.title }}
 
         p.footer__copyright--info
           span.footer__copyright--title(
@@ -31,28 +31,25 @@
             title="이메일 주소를 복사하려면 클릭하세요"
           ) {{ mailTo }}
 
-        a.footer__sns(
-          v-for="(value, key) in snsList"
-          :key="key"
-          target="_blank"
-          :href="value[0]"
-          :title="serviceKo + ' ' + value[2] + '(새 창)'"
-        )
-          i.footer__sns--logo.fab(
-            :class="value[1]"
+        no-ssr
+          a.footer__sns(
+            v-for="(value, key) in snsList"
+            :key="key"
+            target="_blank"
+            :href="value[0]"
+            :title="serviceKo + ' ' + value[2] + '(새 창)'"
           )
+            i.footer__sns--logo.fab(
+              :class="value[1]"
+            )
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import { toast } from '~/mixins/toast'
-// import TOS_ENTRIES from '~/statics/data/tos.json'
 import { globalVar } from '~/assets/js/globalVar'
 
 export default {
   name: 'FooterEl',
-
-  mixins: [toast],
 
   data: () => ({
     mailTo: globalVar.mailTo,
@@ -62,11 +59,11 @@ export default {
   }),
 
   computed: {
-    ...mapState(['thisYear', 'infoList', 'tosList', 'snsList', 'isApp'])
+    ...mapState(['thisYear', 'infoList', 'tosList', 'snsList', 'isApp']),
 
-    // tosEntries: () => {
-    //   return TOS_ENTRIES
-    // }
+    tosEntries: () => {
+      return import('~/assets/json/tos.json')
+    }
   },
 
   methods: {

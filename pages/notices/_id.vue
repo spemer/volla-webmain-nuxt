@@ -18,7 +18,6 @@
 
 <script>
 // import NOTICE_ENTRIES from '~/assets/json/notice.json'
-import { dateFormatting } from '~/mixins/dateFormatting'
 import { globalVar } from '~/assets/js/globalVar'
 
 export default {
@@ -28,8 +27,6 @@ export default {
     title: `${globalVar.serviceEn} - 공지사항`,
     titleTemplate: `%s`
   },
-
-  mixins: [dateFormatting],
 
   // computed: {
   //   noticeEntries: () => {

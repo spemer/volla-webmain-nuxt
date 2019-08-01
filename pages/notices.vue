@@ -17,8 +17,6 @@
 </template>
 
 <script>
-// import NOTICE_ENTRIES from '~/assets/json/notice.json'
-import { dateFormatting } from '~/mixins/dateFormatting'
 import { globalVar } from '~/assets/js/globalVar'
 
 export default {
@@ -29,20 +27,18 @@ export default {
     titleTemplate: `%s`
   },
 
-  mixins: [dateFormatting],
-
-  // computed: {
-  //   noticeEntries: () => {
-  //     return NOTICE_ENTRIES
-  //   }
-  // },
+  computed: {
+    noticeEntries: () => {
+      return import('~/assets/json/notice.json')
+    }
+  },
 
   methods: {
     goDetails(id) {
       this.$router.push({
         name: id,
         params: {
-          id: id
+          id
         }
       })
     }

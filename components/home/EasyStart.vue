@@ -25,6 +25,6 @@ export default {
 <style lang="scss" scoped>
 #easyStart {
   border-top: 1px solid $texteee;
-  padding-bottom: $grid12x;
+  padding-bottom: $grid12x !important;
 }
 </style>

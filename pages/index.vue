@@ -1,10 +1,10 @@
 <template lang="pug">
   div#home
     Header
-    //- Hero
+    Hero
     Service
     EasyStart.section__each
-    //- Download.section__each
+    Download.section__each
     JoinUs.section__each
     Footer
     Kakao

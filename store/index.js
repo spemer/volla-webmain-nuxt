@@ -58,12 +58,13 @@ export const state = () => ({
   // DownloadBtn.vue
   badges: {
     Android: {
-      src: '/src/assets/dist/playstore.png',
+      src: 'https://volla.live/src/assets/dist/playstore.png',
       title: 'Google Play',
       href: globalVar.androidStore
     },
     iOS: {
-      src: '/src/assets/dist/appstore.png',
+      src: 'https://volla.live/src/assets/dist/appstore.png',
+      // src: `${process.env.BASE_URL}/assets/img/dist/appstore.png`,
       title: 'App Store',
       href: globalVar.iosStore
     }
