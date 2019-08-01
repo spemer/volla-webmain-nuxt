@@ -5,13 +5,13 @@ const { src, dest, lastRun, series } = require('gulp')
 const imagemin = require('gulp-imagemin')
 
 // image resize - asset
-function imagemin_asset() {
+function imageminAsset() {
   return src(['./static/img/src/*'], {
-    since: lastRun(imagemin_asset)
+    since: lastRun(imageminAsset)
   })
     .pipe(imagemin())
     .pipe(dest(['./static/img/dist']))
 }
 
 // exports
-exports.default = series(imagemin_asset)
+exports.default = series(imageminAsset)

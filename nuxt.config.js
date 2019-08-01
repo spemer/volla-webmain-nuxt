@@ -1,8 +1,5 @@
-// const path = require('path')
-// const resolve = require('resolve')
-// const webpack = require('webpack')
-// const envPath = path.resolve(__dirname, 'config', '.env')
-// require('dotenv').config({ path: envPath })
+// import tosRoutes from './assets/js/tosRoutes'
+// import noticeRoutes from './assets/js/noticeRoutes'
 
 module.exports = {
   mode: 'universal',
@@ -80,9 +77,6 @@ module.exports = {
       }
     ],
     script: [
-      {
-        src: 'https://developers.kakao.com/sdk/js/kakao.min.js'
-      },
       {
         defer: 'true',
         src: 'https://use.fontawesome.com/releases/v5.8.1/js/all.js',
@@ -206,7 +200,13 @@ module.exports = {
     gzip: false
   },
   router: {
-    base: '/'
+    base: '/',
+    routes: [
+      {
+        // ...tosRoutes,
+        // ...noticeRoutes
+      }
+    ]
     // scrollBehavior(to, from, savedPosition) {
     //   return { x: 0, y: 0 }
     // }
