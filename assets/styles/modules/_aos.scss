@@ -1,10 +1,12 @@
 [data-aos] {
   opacity: 0;
-  transform: translateY($grid8x);
+  -webkit-transform: translateY($grid8x);
+          transform: translateY($grid8x);
   @include transition(all, .75s, ease);
 
   &.aos-animate {
     opacity: 1;
-    transform: translateX(0);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
 }

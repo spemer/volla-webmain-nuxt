@@ -1,8 +1,13 @@
 // const path = require('path')
 // const resolve = require('resolve')
-const webpack = require('webpack')
+// const webpack = require('webpack')
 // const envPath = path.resolve(__dirname, 'config', '.env')
 // require('dotenv').config({ path: envPath })
+
+const requireToken = (to, from, next) => {
+  (store.state.tokenState) && next()
+  next('/sellerform')
+}
 
 module.exports = {
   mode: 'universal',
@@ -50,7 +55,21 @@ module.exports = {
     gzip: false
   },
   router: {
-    base: '/dev'
+    base: '/',
+    routes: [
+      {
+        path: '*',
+        redirect: '/'
+      },
+      {
+        path: '/submit',
+        alias: '/submit-app',
+        beforeEnter: requireToken,
+      }
+    ],
+    scrollBehavior: function (to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    }
   },
 
   /*
@@ -89,10 +108,12 @@ module.exports = {
 
   // Plugins to load before mounting the App
   plugins: [
+    { src: '~/plugins/toast.js', ssr: false },
+    { src: '~/plugins/userAgent.js', ssr: false },
+    { src: '~/plugins/dateFormatting.js', ssr: false },
     { src: '~/plugins/vue-clipboard2.js', ssr: false },
     { src: '~/plugins/vue-progressbar.js', ssr: false },
     { src: '~/plugins/vue-scrollto.js', ssr: false }
-    // {src: '~/plugins/vue-toasted.js', ssr: false }
   ],
 
   // Build configuration
@@ -101,8 +122,8 @@ module.exports = {
     vendor: [
       'vue-clipboard2',
       'vue-progressbar',
-      'vue-scrollto'
-      // 'vue-toasted'
+      'vue-scrollto',
+      'vue-toasted'
     ],
     filenames: {
       app: ({ isDev }) => (isDev ? '[name].[hash].js' : '[chunkhash].js'),

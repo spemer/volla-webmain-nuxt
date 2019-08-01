@@ -2,17 +2,17 @@
   div#joinus
     div.container
       h1.joinus__title.section__title {{ serviceKo }}에 입점하세요
-      p.section__subtitle
-        | {{ stringUpper }}
-        br
-        | {{ stringBelow }}
-        br
-        span.joinus__title--copyEmail(
-          v-clipboard:copy="mailTo"
-          title="이메일 주소를 복사하려면 클릭하세요"
-          @click="toast('이메일 주소가 복사되었습니다')"
-        ) 이메일 주소 복사하기
-          i.far.fa-copy
+      no-ssr
+        p.section__subtitle
+          | {{ stringUpper }}
+          br
+          | {{ stringBelow }}
+          span.joinus__title--copyEmail(
+            v-clipboard:copy="mailTo"
+            title="이메일 주소를 복사하려면 클릭하세요"
+            @click="toast('이메일 주소가 복사되었습니다')"
+          ) 이메일 주소 복사하기
+            i.far.fa-copy
 
       div.global__cta
         a.global__cta--link(
@@ -32,12 +32,9 @@
 
 <script>
 import { globalVar } from '~/assets/js/globalVar'
-import { toast } from '~/mixins/toast'
 
 export default {
   name: 'Joinus',
-
-  mixins: [toast],
 
   data: () => ({
     stringUpper: '',
@@ -100,7 +97,7 @@ export default {
         cursor: pointer;
         font-weight: 400;
         color: $brand-pink;
-        display: inline-block;
+        display: block;
         @include transition(all 0.25s ease);
 
         &:hover {

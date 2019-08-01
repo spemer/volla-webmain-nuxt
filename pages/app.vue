@@ -17,12 +17,9 @@
 
 <script>
 import { globalVar } from '~/assets/js/globalVar'
-import { userAgent } from '~/mixins/userAgent'
 
 export default {
   name: 'RedirectDl',
-
-  mixins: [userAgent],
 
   data: () => ({
     website: '웹사이트 바로가기',

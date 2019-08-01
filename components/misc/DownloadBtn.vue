@@ -14,9 +14,9 @@
         span.download__badge--text {{ value.title }}
 
     div.download__badge.if__mobile--true
-      a.download__badge--link(
+      nuxt-link.download__badge--link(
+        :to="badgesMobile.href"
         target="_blank"
-        :href="badgesMobile.href"
         :title="badgesMobile.title + '에서 다운받기'"
       )
         img.download__badge--each(
@@ -27,12 +27,9 @@
 
 <script>
 import { mapState } from 'vuex'
-import { userAgent } from '~/mixins/userAgent'
 
 export default {
   name: 'DownloadBtn',
-
-  mixins: [userAgent],
 
   computed: {
     ...mapState(['badges']),

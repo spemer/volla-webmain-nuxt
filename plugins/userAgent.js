@@ -1,4 +1,6 @@
-export const userAgent = () => ({
+import Vue from 'vue'
+
+Vue.mixin({
   data: () => ({
     userAgent: null
   }),
