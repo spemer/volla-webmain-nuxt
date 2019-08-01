@@ -2,6 +2,7 @@
   div#sellerForm.submit(
     :class="{app: isApp}"
   )
+    Header
     div.container
       div.sbmt
         h1.sellerform__form--title 감사합니다
@@ -99,6 +100,14 @@ export default {
       'tokenState',
       'isApp'
     ])
+  },
+
+  beforeCreate() {
+    if (!this.$store.state.tokenState) {
+      this.$router.replace({
+        path: '/sellerform'
+      })
+    }
   },
 
   mounted() {
