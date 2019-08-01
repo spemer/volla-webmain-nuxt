@@ -6,11 +6,11 @@ const imagemin = require('gulp-imagemin')
 
 // image resize - asset
 function imagemin_asset() {
-  return src(['./assets/img/src/*'], {
+  return src(['./static/img/src/*'], {
     since: lastRun(imagemin_asset)
   })
     .pipe(imagemin())
-    .pipe(dest(['./assets/img/dist']))
+    .pipe(dest(['./static/img/dist']))
 }
 
 // exports

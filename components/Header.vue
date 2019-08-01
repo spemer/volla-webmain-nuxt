@@ -7,7 +7,7 @@
         v-scroll-to="{el: 'body', duration: 0}"
       )
         img.header__left--img(
-          src="~/assets/img/dist/launcher.svg"
+          src="/img/dist/launcher.svg"
         )
         p.header__left--text {{ serviceEn }}
 

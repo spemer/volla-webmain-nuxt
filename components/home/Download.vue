@@ -9,7 +9,7 @@
 
       div.download__mockup
         img.download__mockup--img(
-          src="~/assets/img/dist/screen.png"
+          src="/img/dist/screen.png"
         )
 </template>
 
