@@ -43,8 +43,8 @@ export default {
 
   mounted() {
     return this.$route.path === '/'
-      ? ((this.href = '/microsite'), (this.text = '입점소개'))
-      : ((this.href = '/seller'), (this.text = '메인으로'))
+      ? ((this.href = '/seller'), (this.text = '입점소개'))
+      : ((this.href = '/'), (this.text = '메인으로'))
   }
 }
 </script>

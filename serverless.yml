@@ -9,9 +9,17 @@ provider:
   memorySize: 512
   timeout: 12
 
+  region: ap-northeast-2
+  
   environment: # 환경 변수
     STAGE: ${opt:stage, 'dev'}
-
+    NODE_ENV: ${opt:node_env, 'development'}
+  deploymentBucket:
+    name: com.riversouthfive.volla.${self:provider.region}.deploys
+    tags:
+      stage: ${self:provider.stage}
+      api-name: ${self:provider.apiName}
+      
 tracing:
   lambda: true
   apiGateway: true

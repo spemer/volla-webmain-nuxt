@@ -48,10 +48,10 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 import Header from '~/components/Header'
 import Footer from '~/components/Footer'
 import Kakao from '~/components/misc/Kakao'
-import { mapState, mapMutations } from 'vuex'
 import { globalVar } from '~/assets/js/globalVar'
 
 export default {
@@ -85,7 +85,7 @@ export default {
   },
 
   mounted() {
-    return this.$route.path == '/submit-app'
+    return this.$route.path === '/submit-app'
       ? this.SET_CLASS_APP(true)
       : this.SET_CLASS_APP(false)
   },

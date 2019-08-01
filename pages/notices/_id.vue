@@ -42,7 +42,7 @@ export default {
       this.$router.push({
         name: id,
         params: {
-          id: id
+          id
         }
       })
     }

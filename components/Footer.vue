@@ -71,13 +71,13 @@ export default {
 
   methods: {
     tosRouter(id, date) {
-      let popupTos = this.$router.resolve({
+      const popupTos = this.$router.resolve({
         name: id,
         params: {
-          id: id
+          id
         },
         query: {
-          date: date
+          date
         }
       })
 

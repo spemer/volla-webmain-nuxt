@@ -50,13 +50,13 @@ export default {
   },
 
   mounted() {
-    let android = globalVar.androidStore,
-      ios = globalVar.iosStore,
-      unknown = globalVar.websiteUrl
+    const android = globalVar.androidStore
+    const ios = globalVar.iosStore
+    const unknown = globalVar.websiteUrl
 
-    if (this.userAgent == 'Android') {
+    if (this.userAgent === 'Android') {
       window.location.href = android
-    } else if (this.userAgent == 'iOS') {
+    } else if (this.userAgent === 'iOS') {
       window.location.href = ios
     } else {
       alert('안드로이드, iOS 등의 모바일 운영체제에서만 다운로드 가능합니다.')

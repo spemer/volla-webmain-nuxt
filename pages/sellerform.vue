@@ -99,11 +99,11 @@
 </template>
 
 <script>
+import axios from 'axios'
+import { mapState, mapMutations } from 'vuex'
 import Header from '~/components/Header'
 import Footer from '~/components/Footer'
 import Kakao from '~/components/misc/Kakao'
-import axios from 'axios'
-import { mapState, mapMutations } from 'vuex'
 import { toast } from '~/mixins/toast'
 import { globalVar } from '~/assets/js/globalVar'
 
@@ -176,7 +176,7 @@ export default {
   },
 
   mounted() {
-    return this.$route.path == '/sellerform-app'
+    return this.$route.path === '/sellerform-app'
       ? this.SET_CLASS_APP(true)
       : this.SET_CLASS_APP(false)
   },
@@ -200,8 +200,8 @@ export default {
           this.ADD_FORM_HELPTEXT([1, ''])
 
           if (this.sellerForm_List[2].value) {
-            return this.sellerForm_List[2].value.indexOf('http') === -1 ||
-              this.sellerForm_List[2].value.indexOf('://') === -1
+            return !this.sellerForm_List[2].value.includes('http') ||
+              !this.sellerForm_List[2].value.includes('://')
               ? this.ADD_FORM_HELPTEXT([
                   2,
                   `URL은 'http://' 혹은 'https://'로 시작해야 합니다.`

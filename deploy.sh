@@ -140,6 +140,7 @@ git_push() {
       [Yy]* )
         printf "\n"
         echo "${BOLD}${PURPLE}🔥 Push: GitLab 🔥${RESET}"
+        git checkout development;
         git push origin;
         printf "\n"
         echo "${BOLD}${PURPLE}🔥 Push: GitHub 🔥${RESET}"

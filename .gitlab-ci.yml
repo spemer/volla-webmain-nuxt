@@ -1,0 +1,47 @@
+image: node:8.10.0
+
+stages:
+  - deploy
+  - deploy_master
+  - report_deploy_success
+  - report_deploy_master_success
+
+deploy_develop:
+  stage: deploy
+  except:
+    - master
+  script:
+    - rm -rf ./node_modules .serverless ./package-lock.json
+    - cd ./layers/nodejs && rm -rf ./node_modules && npm install && cd ../..
+    - npm install
+    - node node_modules/nuxt/bin/nuxt.js build
+    - export SLS_DEBUG=*
+    - node ./node_modules/serverless/bin/serverless deploy --node_env production --stage dev --rds_endpoint_write $DEV_RDS_ENDPOINT_WRITE --rds_endpoint_read $DEV_RDS_ENDPOINT_READ --rds_user $DEV_RDS_USER --rds_password $DEV_RDS_PASSWORD --rds_database $DEV_RDS_DATABASE --redis_endpoint $DEV_REDIS_ENDPOINT
+
+deploy_master:
+  stage: deploy_master
+  only:
+    - master
+  script:
+    - rm -rf ./node_modules .serverless ./package-lock.json
+    - cd ./layers/nodejs && rm -rf ./node_modules && npm install && cd ../..
+    - npm install
+    - node node_modules/nuxt/bin/nuxt.js build
+    - export SLS_DEBUG=*
+    - node ./node_modules/serverless/bin/serverless deploy --node_env production --stage prod --rds_endpoint_write $PROD_RDS_ENDPOINT_WRITE --rds_endpoint_read $PROD_RDS_ENDPOINT_READ --rds_user $PROD_RDS_USER --rds_password $PROD_RDS_PASSWORD --rds_database $PROD_RDS_DATABASE --redis_endpoint $PROD_REDIS_ENDPOINT
+
+deploy_success:
+  stage: report_deploy_success
+  except:
+    - master
+  script:
+    - 'curl -X POST --data-urlencode "payload={\"channel\": \"#alert_cicdrelease\", \"username\": \"GitLab-CI Notification\", \"text\": \"volla-sls-nuxtweb *DEVELOP* deploy success. \n> Commit Msg: $CI_COMMIT_MESSAGE \n> Pipeline: $CI_PIPELINE_ID \n>Details: $CI_JOB_URL \"}" $SLACK_WEB_HOOK'
+  when: on_success
+
+report_deploy_master_success:
+  stage: report_deploy_master_success
+  only:
+    - master
+  script:
+    - 'curl -X POST --data-urlencode "payload={\"channel\": \"#alert_cicdrelease\", \"username\": \"GitLab-CI Notification\", \"text\": \"volla-sls-nuxtweb *MASTER* deploy success. \n> Commit Msg: $CI_COMMIT_MESSAGE \n> Pipeline: $CI_PIPELINE_ID \n>Details: $CI_JOB_URL \"}" $SLACK_WEB_HOOK'
+  when: on_success
