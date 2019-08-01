@@ -19,32 +19,34 @@
 import { globalVar } from '~/assets/js/globalVar'
 
 export default {
-  name: 'RedirectDl',
-
   data: () => ({
     website: '웹사이트 바로가기',
     serviceKo: globalVar.serviceKo
   }),
 
-  metaInfo: {
+  head: () => ({
     title: globalVar.serviceEn,
-    titleTemplate: `%s 앱 다운로드`,
+    titleTemplate: `%s - 앱 다운로드`,
     meta: [
-      { name: 'description', content: `${globalVar.serviceEn} 앱 다운로드` },
+      {
+        hid: 'description',
+        name: 'description',
+        content: `${globalVar.serviceEn} - 앱 다운로드`
+      },
       {
         itemprop: 'description',
-        content: `${globalVar.serviceEn} 앱 다운로드`
+        content: `${globalVar.serviceEn} - 앱 다운로드`
       },
       {
         property: 'og:description',
-        content: `${globalVar.serviceEn} 앱 다운로드`
+        content: `${globalVar.serviceEn} - 앱 다운로드`
       },
       {
         name: 'twitter:description',
-        content: `${globalVar.serviceEn} 앱 다운로드`
+        content: `${globalVar.serviceEn} - 앱 다운로드`
       }
     ]
-  },
+  }),
 
   mounted() {
     const android = globalVar.androidStore

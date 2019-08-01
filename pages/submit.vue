@@ -55,8 +55,6 @@ import Kakao from '~/components/misc/Kakao'
 import { globalVar } from '~/assets/js/globalVar'
 
 export default {
-  name: 'AfterSubmitForm',
-
   components: {
     Header,
     Footer,
@@ -67,10 +65,29 @@ export default {
     serviceKo: globalVar.serviceKo
   }),
 
-  metaInfo: {
-    title: `${globalVar.serviceEn} - ${globalVar.sellerForm}`,
-    titleTemplate: '%s'
-  },
+  head: () => ({
+    title: `${globalVar.serviceEn} - 입점신청완료`,
+    titleTemplate: '%s',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: `${globalVar.serviceEn} - 입점신청완료`
+      },
+      {
+        itemprop: 'description',
+        content: `${globalVar.serviceEn} - 입점신청완료`
+      },
+      {
+        property: 'og:description',
+        content: `${globalVar.serviceEn} - 입점신청완료`
+      },
+      {
+        name: 'twitter:description',
+        content: `${globalVar.serviceEn} - 입점신청완료`
+      }
+    ]
+  }),
 
   computed: {
     ...mapState([

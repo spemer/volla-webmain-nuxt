@@ -13,30 +13,49 @@
             h3.notices__list--title(
               @click="goDetails(entry.id)"
             ) {{ entry.title }}
-              span.notices__list--date {{ dateFormatting(entry.ymd) }}
+              span.notices__list--date {{ '20' + entry.ymd.toString().replace(/\B(?=(\d{2})+(?!\d))/g, '. ') }}
 </template>
 
 <script>
+import NOTICE_ENTRIES from '~/static/json/notices.json'
 import { globalVar } from '~/assets/js/globalVar'
 
 export default {
-  name: 'Notices',
-
-  metaInfo: {
+  head: () => ({
     title: `${globalVar.serviceEn} - 공지사항`,
-    titleTemplate: `%s`
-  },
+    titleTemplate: '%s',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: `${globalVar.serviceEn} - 공지사항`
+      },
+      {
+        itemprop: 'description',
+        content: `${globalVar.serviceEn} - 공지사항`
+      },
+      {
+        property: 'og:description',
+        content: `${globalVar.serviceEn} - 공지사항`
+      },
+      {
+        name: 'twitter:description',
+        content: `${globalVar.serviceEn} - 공지사항`
+      }
+    ]
+  }),
 
   computed: {
     noticeEntries: () => {
-      return import('~/assets/json/notice.json')
+      return NOTICE_ENTRIES
     }
   },
 
   methods: {
     goDetails(id) {
       this.$router.push({
-        name: id,
+        // path: `notices/${id}`,
+        path: id,
         params: {
           id
         }

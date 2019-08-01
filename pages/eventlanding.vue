@@ -9,9 +9,32 @@
 
 <script>
 import JoinUs from '~/components/home/JoinUs'
+import { globalVar } from '~/assets/js/globalVar'
 
 export default {
-  name: 'EventLanding',
+  head: () => ({
+    title: `${globalVar.serviceEn} - 이벤트`,
+    titleTemplate: '%s',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: `${globalVar.serviceEn} - 이벤트`
+      },
+      {
+        itemprop: 'description',
+        content: `${globalVar.serviceEn} - 이벤트`
+      },
+      {
+        property: 'og:description',
+        content: `${globalVar.serviceEn} - 이벤트`
+      },
+      {
+        name: 'twitter:description',
+        content: `${globalVar.serviceEn} - 이벤트`
+      }
+    ]
+  }),
 
   components: {
     JoinUs
