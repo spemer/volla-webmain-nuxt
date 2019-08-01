@@ -20,12 +20,32 @@ import JoinUs from '~/components/home/JoinUs'
 import Footer from '~/components/Footer'
 import Kakao from '~/components/misc/Kakao'
 import { globalVar } from '~/assets/js/globalVar'
+
 export default {
-  name: 'Home',
-  metaInfo: {
+  head: () => ({
     title: globalVar.serviceEn,
-    titleTemplate: `%s - ${globalVar.tagline}`
-  },
+    titleTemplate: '%s',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: `${globalVar.serviceEn} - ${globalVar.taglineLong}`
+      },
+      {
+        itemprop: 'description',
+        content: `${globalVar.serviceEn} - ${globalVar.taglineLong}`
+      },
+      {
+        property: 'og:description',
+        content: `${globalVar.serviceEn} - ${globalVar.taglineLong}`
+      },
+      {
+        name: 'twitter:description',
+        content: `${globalVar.serviceEn} - ${globalVar.taglineLong}`
+      }
+    ]
+  }),
+
   components: {
     Header,
     Hero,

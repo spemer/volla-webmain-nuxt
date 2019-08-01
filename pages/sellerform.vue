@@ -108,8 +108,6 @@ import Kakao from '~/components/misc/Kakao'
 import { globalVar } from '~/assets/js/globalVar'
 
 export default {
-  name: 'SellerForm',
-
   components: {
     Header,
     Footer,
@@ -122,10 +120,29 @@ export default {
     sellerCondition: globalVar.sellerCondition
   }),
 
-  metaInfo: {
+  head: () => ({
     title: `${globalVar.serviceEn} - ${globalVar.sellerForm}`,
-    titleTemplate: '%s'
-  },
+    titleTemplate: '%s',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: `${globalVar.serviceEn} - ${globalVar.sellerForm}`
+      },
+      {
+        itemprop: 'description',
+        content: `${globalVar.serviceEn} - ${globalVar.sellerForm}`
+      },
+      {
+        property: 'og:description',
+        content: `${globalVar.serviceEn} - ${globalVar.sellerForm}`
+      },
+      {
+        name: 'twitter:description',
+        content: `${globalVar.serviceEn} - ${globalVar.sellerForm}`
+      }
+    ]
+  }),
 
   computed: {
     ...mapState([

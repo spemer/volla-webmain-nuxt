@@ -26,12 +26,29 @@ import Kakao from '~/components/misc/Kakao'
 import { globalVar } from '~/assets/js/globalVar'
 
 export default {
-  name: 'Microsite',
-
-  metaInfo: {
+  head: () => ({
     title: globalVar.serviceEn,
-    titleTemplate: `%s - ${globalVar.taglineSeller}`
-  },
+    titleTemplate: `%s - ${globalVar.taglineSeller}`,
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: `${globalVar.serviceEn} - ${globalVar.taglineSeller}`
+      },
+      {
+        itemprop: 'description',
+        content: `${globalVar.serviceEn} - ${globalVar.taglineSeller}`
+      },
+      {
+        property: 'og:description',
+        content: `${globalVar.serviceEn} - ${globalVar.taglineSeller}`
+      },
+      {
+        name: 'twitter:description',
+        content: `${globalVar.serviceEn} - ${globalVar.taglineSeller}`
+      }
+    ]
+  }),
 
   components: {
     Header,

@@ -47,6 +47,7 @@
 <script>
 import { mapState } from 'vuex'
 import { globalVar } from '~/assets/js/globalVar'
+import TOS_ENTRIES from '~/static/json/tos.json'
 
 export default {
   name: 'FooterEl',
@@ -61,15 +62,15 @@ export default {
   computed: {
     ...mapState(['thisYear', 'infoList', 'tosList', 'snsList', 'isApp']),
 
-    tosEntries: () => {
-      return import('~/assets/json/tos.json')
+    tosEntries() {
+      return TOS_ENTRIES
     }
   },
 
   methods: {
     tosRouter(id, date) {
       const popupTos = this.$router.resolve({
-        name: id,
+        path: `tos/${id}`,
         params: {
           id
         },

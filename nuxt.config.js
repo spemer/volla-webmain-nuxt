@@ -5,7 +5,7 @@
 // require('dotenv').config({ path: envPath })
 
 const requireToken = (to, from, next) => {
-  (store.state.tokenState) && next()
+  store.state.tokenState && next()
   next('/sellerform')
 }
 
@@ -26,19 +26,31 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: 'Volla'
+        content: 'Volla - 라이브 방송으로 만나는 오프라인 쇼핑'
+      },
+      {
+        itemprop: 'description',
+        content: 'Volla - 라이브 방송으로 만나는 오프라인 쇼핑'
+      },
+      {
+        property: 'og:description',
+        content: 'Volla - 라이브 방송으로 만나는 오프라인 쇼핑'
+      },
+      {
+        name: 'twitter:description',
+        content: 'Volla - 라이브 방송으로 만나는 오프라인 쇼핑'
       }
     ],
     script: [
+      {
+        src: 'https://developers.kakao.com/sdk/js/kakao.min.js'
+      },
       {
         defer: 'true',
         src: 'https://use.fontawesome.com/releases/v5.8.1/js/all.js',
         integrity:
           'sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ',
         crossorigin: 'anonymous'
-      },
-      {
-        src: 'https://developers.kakao.com/sdk/js/kakao.min.js'
       }
     ],
     script: [
@@ -76,12 +88,12 @@ module.exports = {
       {
         path: '/submit',
         alias: '/submit-app',
-        beforeEnter: requireToken,
+        beforeEnter: requireToken
       }
-    ],
-    scrollBehavior: function (to, from, savedPosition) {
-      return { x: 0, y: 0 }
-    }
+    ]
+    // scrollBehavior: function (to, from, savedPosition) {
+    //   return { x: 0, y: 0 }
+    // }
   },
 
   /*
@@ -89,7 +101,7 @@ module.exports = {
    */
   loading: { color: '#fff' },
 
-  css: ['~/assets/styles/style.scss'],
+  css: ['~assets/styles/style.scss'],
 
   /*
    ** Nuxt.js modules
@@ -104,11 +116,11 @@ module.exports = {
 
   styleResources: {
     scss: [
-      '~/assets/styles/style.scss',
-      '~/assets/styles/modules/*.scss',
-      '~/assets/styles/pages/*.scss',
-      '~/assets/styles/components/home/*.scss',
-      '~/assets/styles/components/seller/*.scss'
+      '~assets/styles/style.scss',
+      '~assets/styles/modules/*.scss',
+      '~assets/styles/pages/*.scss',
+      '~assets/styles/components/home/*.scss',
+      '~assets/styles/components/seller/*.scss'
     ]
   },
   /*
@@ -120,12 +132,12 @@ module.exports = {
 
   // Plugins to load before mounting the App
   plugins: [
-    { src: '~/plugins/toast.js', ssr: false },
-    { src: '~/plugins/userAgent.js', ssr: false },
-    { src: '~/plugins/dateFormatting.js', ssr: false },
-    { src: '~/plugins/vue-clipboard2.js', ssr: false },
-    { src: '~/plugins/vue-progressbar.js', ssr: false },
-    { src: '~/plugins/vue-scrollto.js', ssr: false }
+    { src: '~plugins/toast.js', ssr: false },
+    { src: '~plugins/userAgent.js', ssr: false },
+    { src: '~plugins/dateFormatting.js', ssr: false },
+    { src: '~plugins/vue-clipboard2.js', ssr: false },
+    { src: '~plugins/vue-progressbar.js', ssr: false },
+    { src: '~plugins/vue-scrollto.js', ssr: false }
   ],
 
   // Build configuration

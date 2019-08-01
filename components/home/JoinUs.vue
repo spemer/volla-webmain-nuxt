@@ -7,6 +7,7 @@
           | {{ stringUpper }}
           br
           | {{ stringBelow }}
+          br
           span.joinus__title--copyEmail(
             v-clipboard:copy="mailTo"
             title="이메일 주소를 복사하려면 클릭하세요"
@@ -97,7 +98,7 @@ export default {
         cursor: pointer;
         font-weight: 400;
         color: $brand-pink;
-        display: block;
+        display: inline-block;
         @include transition(all 0.25s ease);
 
         &:hover {
