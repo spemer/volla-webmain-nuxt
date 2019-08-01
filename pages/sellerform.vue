@@ -2,7 +2,6 @@
   div#sellerForm(
     :class="{app: isApp}"
   )
-    Header
     div.container
       h1.sellerform__form--title {{ sellerForm }}
       p.sellerform__form--subtitle {{ serviceKo }} 셀러(판매자)용 입점 신청서입니다.
@@ -95,23 +94,16 @@
               name="sellerform__form"
               @click="checkCategoryValue"
             ) 제출하기
-    Footer
-    Kakao
 </template>
 
 <script>
 import axios from 'axios'
 import { mapState, mapMutations } from 'vuex'
-import Header from '~/components/Header'
-import Footer from '~/components/Footer'
-import Kakao from '~/components/misc/Kakao'
 import { globalVar } from '~/assets/js/globalVar'
 
 export default {
-  components: {
-    Header,
-    Footer,
-    Kakao
+  layout(context) {
+    return 'common'
   },
 
   data: () => ({

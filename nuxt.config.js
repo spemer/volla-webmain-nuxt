@@ -159,14 +159,20 @@ module.exports = {
       {
         rel: 'icon',
         type: 'image/png',
-        sizes: '192x192',
-        href: '/favicon/android-icon-192x192.png'
+        sizes: '36x36',
+        href: '/favicon/android-icon-36x36.png'
       },
       {
         rel: 'icon',
         type: 'image/png',
-        sizes: '32x32',
-        href: '/favicon/android-icon-32x32.png'
+        sizes: '48x48',
+        href: '/favicon/android-icon-48x48.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '72x72',
+        href: '/favicon/android-icon-72x72.png'
       },
       {
         rel: 'icon',
@@ -177,8 +183,32 @@ module.exports = {
       {
         rel: 'icon',
         type: 'image/png',
+        sizes: '144x144',
+        href: '/favicon/android-icon-144x144.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '192x192',
+        href: '/favicon/android-icon-192x192.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/favicon/favicon-32x32.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '96x96',
+        href: '/favicon/favicon-96x96.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
         sizes: '16x16',
-        href: '/favicon/android-icon-16x16.png'
+        href: '/favicon/favicon-16x16.png'
       },
       { rel: 'manifest', href: '/favicon/manifest.json' }
     ]
@@ -188,24 +218,10 @@ module.exports = {
     gzip: false
   },
   router: {
-    base: '/',
-    routes: [
-      {
-        path: '*',
-        redirect: '/'
-      },
-      {
-        path: '/submit',
-        alias: '/submit-app',
-        beforeEnter: (requireToken = (to, from, next) => {
-          store.state.tokenState && next()
-          next('/sellerform')
-        })
-      }
-    ],
-    scrollBehavior(to, from, savedPosition) {
-      return { x: 0, y: 0 }
-    }
+    base: '/'
+    // scrollBehavior(to, from, savedPosition) {
+    //   return { x: 0, y: 0 }
+    // }
   },
 
   /*

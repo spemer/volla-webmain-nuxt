@@ -54,7 +54,6 @@ export default {
   methods: {
     goDetails(id) {
       this.$router.push({
-        // path: `notices/${id}`,
         path: id,
         params: {
           id
