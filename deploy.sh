@@ -22,7 +22,7 @@ dev_or_deploy() {
       [Rr]* )
         printf "\n"
         echo "${BOLD}${PURPLE}🔥 Run dev server 🔥${RESET}"
-        # image_resizer
+        image_resizer
         npm_run_dev
         npm_run_build
         git_commit
@@ -140,7 +140,6 @@ git_push() {
       [Yy]* )
         printf "\n"
         echo "${BOLD}${PURPLE}🔥 Push: GitLab 🔥${RESET}"
-        git checkout development;
         git push origin;
         printf "\n"
         echo "${BOLD}${PURPLE}🔥 Push: GitHub 🔥${RESET}"

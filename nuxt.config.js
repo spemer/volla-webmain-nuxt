@@ -4,11 +4,6 @@
 // const envPath = path.resolve(__dirname, 'config', '.env')
 // require('dotenv').config({ path: envPath })
 
-const requireToken = (to, from, next) => {
-  store.state.tokenState && next()
-  next('/sellerform')
-}
-
 module.exports = {
   mode: 'universal',
   /*
@@ -23,6 +18,7 @@ module.exports = {
         content:
           'width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0, viewport-fit=cover'
       },
+      // meta, seo
       {
         hid: 'description',
         name: 'description',
@@ -39,6 +35,24 @@ module.exports = {
       {
         name: 'twitter:description',
         content: 'Volla - 라이브 방송으로 만나는 오프라인 쇼핑'
+      },
+      {
+        itemprop: 'keywords',
+        content:
+          '볼라,Volla,여성,패션,뷰티,트위치,아프리카,동대문,쇼핑몰,BJ,스트리밍,채팅,홈쇼핑,아이디어스,그립,지그재그,화해,에이블리,인싸,유튜브,인플루언서,라방,하울,브랜디,룩핀,스타일,코디,무신사'
+      },
+      // site verification
+      {
+        name: 'google-site-verification',
+        content: '7wgJAy0Qce6ltlBzRVr-hFpFYjjcdw7sKpfYil-HdI0'
+      },
+      {
+        name: 'naver-site-verification',
+        content: 'dd2bc3a7564532cf684be2d390977b4cd96c5b99'
+      },
+      {
+        name: 'fb:admins',
+        content: '2378294292413002'
       }
     ],
     script: [
@@ -88,7 +102,10 @@ module.exports = {
       {
         path: '/submit',
         alias: '/submit-app',
-        beforeEnter: requireToken
+        beforeEnter: (requireToken = (to, from, next) => {
+          store.state.tokenState && next()
+          next('/sellerform')
+        })
       }
     ]
     // scrollBehavior: function (to, from, savedPosition) {
