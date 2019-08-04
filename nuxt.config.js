@@ -200,7 +200,7 @@ module.exports = {
     gzip: false
   },
   router: {
-    base: `/${process.env.STAGE || 'dev'}`,
+    // base: `/${process.env.STAGE || 'dev'}`,
     // routes: [
     //   {
     //     // ...tosRoutes,
@@ -224,6 +224,8 @@ module.exports = {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/markdownit',
+    // https://vuejsdevelopers.com/2018/12/31/vue-nuxt-spa-markdown/
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
