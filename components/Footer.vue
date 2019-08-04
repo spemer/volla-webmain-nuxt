@@ -8,14 +8,13 @@
           | ⓒ {{ thisYear }} {{ companyName }}., All Rights Reserved.
 
         p.footer__terms(
-            v-for="(section, index) in Object.keys(tosEntries)"
-            :key="index"
+            v-for="(section, index) in tosEntries"
           )
           span.footer__terms--each(
-            v-for="entry in tosEntries[section]"
+            v-for="entry in tosEntries[tosRenewDate]"
             :key="entry.id"
             target="_blank"
-            @click="tosRouter(entry.id, section)"
+            @click="tosRouter(entry.id, tosRenewDate)"
           ) {{ entry.title }}
 
         p.footer__copyright--info
@@ -50,9 +49,9 @@ import { globalVar } from '~/assets/js/globalVar'
 import TOS_ENTRIES from '~/static/json/tos.json'
 
 export default {
-  name: 'FooterEl',
-
   data: () => ({
+    tosEntries: null,
+    tosRenewDate: globalVar.tosDateNowNumber,
     mailTo: globalVar.mailTo,
     serviceKo: globalVar.serviceKo,
     companyName: globalVar.companyName,
@@ -60,11 +59,13 @@ export default {
   }),
 
   computed: {
-    ...mapState(['thisYear', 'infoList', 'tosList', 'snsList', 'isApp']),
+    ...mapState(['thisYear', 'infoList', 'tosList', 'snsList', 'isApp'])
+  },
 
-    tosEntries() {
-      return TOS_ENTRIES
-    }
+  created() {
+    this.$axios.get('./json/tos.json').then((res) => {
+      this.tosEntries = res.data
+    })
   },
 
   methods: {

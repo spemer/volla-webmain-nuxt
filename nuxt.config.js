@@ -1,11 +1,6 @@
 // import tosRoutes from './assets/js/tosRoutes'
 // import noticeRoutes from './assets/js/noticeRoutes'
 
-const noticesMap = require('./static/contentsMap/notices.js')
-
-const noticeRoutes = (noticesMap.post.map(v => `notices/${v.id}`))
-  .concat(noticesMap.category.map(v => 'notices/' + v.ymd))
-
 module.exports = {
   mode: 'universal',
   /*
@@ -211,9 +206,6 @@ module.exports = {
     generate: true, // Enable me when using nuxt generate
     routes: []
   },
-  generate: {
-    routes: allRoutes
-  },
   router: {
     mode: 'history',
     // base: `/${process.env.STAGE || 'dev'}`,
@@ -265,6 +257,7 @@ module.exports = {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    // proxyHeaders: false
   },
 
   // Plugins to load before mounting the App
@@ -281,6 +274,7 @@ module.exports = {
   build: {
     // You can extend webpack config here
     vendor: [
+      'axios',
       'vue-clipboard2',
       'vue-progressbar',
       'vue-scrollto',
