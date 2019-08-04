@@ -46,16 +46,17 @@ package:
     - README.md
     - package.json
     - package-lock.json
-    - node_modules/**
+    - node_modules/**/*.md
+    - node_modules/**/bin/**
   include:
     - server/**
     - config/index.js
     - config/config.js
     - nuxt.config.js
     - .nuxt/**
-    # - node_modules/autoprefixer/**
-    # - node_modules/babel-runtime/**
-    # - node_modules/babel-extract-comments/**
+    - node_modules/autoprefixer/**
+    - node_modules/babel-runtime/**
+    - node_modules/babel-extract-comments/**
 
 layers:
   webmainNuxt:

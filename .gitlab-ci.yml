@@ -12,7 +12,7 @@ deploy_develop:
     - master
   script:
     - rm -rf ./node_modules .serverless ./package-lock.json
-    - cp .package.json ./layers/nodejs/package.json && cd ./layers/nodejs && rm -rf ./node_modules && npm install && cd ../..
+    - cd ./layers/nodejs && rm -rf ./node_modules && npm install && cd ../..
     - npm install
     - npx gulp default
     - node node_modules/nuxt/bin/nuxt.js build
@@ -25,7 +25,7 @@ deploy_master:
     - master
   script:
     - rm -rf ./node_modules .serverless ./package-lock.json
-    - cp .package.json ./layers/nodejs/package.json && cd ./layers/nodejs && rm -rf ./node_modules && npm install && cd ../..
+    - cd ./layers/nodejs && rm -rf ./node_modules && npm install && cd ../..
     - npm install
     - npx gulp default
     - node node_modules/nuxt/bin/nuxt.js build

@@ -1,6 +1,5 @@
 // import tosRoutes from './assets/js/tosRoutes'
 // import noticeRoutes from './assets/js/noticeRoutes'
-const env = process.env
 
 module.exports = {
   mode: 'universal',
@@ -201,7 +200,7 @@ module.exports = {
     gzip: false
   },
   router: {
-    base: '/' + env.STAGE || 'dev',
+    base: `/${process.env.STAGE || 'dev'}`,
     // routes: [
     //   {
     //     // ...tosRoutes,
