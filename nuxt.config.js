@@ -200,22 +200,22 @@ module.exports = {
     gzip: false
   },
   router: {
-    base: '/',
-    routes: [
-      {
-        // ...tosRoutes,
-        // ...noticeRoutes
-      }
-    ]
-    // scrollBehavior(to, from, savedPosition) {
-    //   return { x: 0, y: 0 }
-    // }
+    base: process.env.STAGE,
+    // routes: [
+    //   {
+    //     // ...tosRoutes,
+    //     // ...noticeRoutes
+    //   }
+    // ]
+    scrollBehavior(to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    }
   },
 
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#ff82ab' },
 
   css: ['~assets/styles/style.scss'],
 

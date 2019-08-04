@@ -12,8 +12,9 @@ deploy_develop:
     - master
   script:
     - rm -rf ./node_modules .serverless ./package-lock.json
-    - cd ./layers/nodejs && rm -rf ./node_modules && npm install && cd ../..
+    - cp .package.json ./layers/nodejs/package.json && cd ./layers/nodejs && rm -rf ./node_modules && npm install && cd ../..
     - npm install
+    - npx gulp default
     - node node_modules/nuxt/bin/nuxt.js build
     - export SLS_DEBUG=*
     - node ./node_modules/serverless/bin/serverless deploy --node_env production --stage dev --rds_endpoint_write $DEV_RDS_ENDPOINT_WRITE --rds_endpoint_read $DEV_RDS_ENDPOINT_READ --rds_user $DEV_RDS_USER --rds_password $DEV_RDS_PASSWORD --rds_database $DEV_RDS_DATABASE --redis_endpoint $DEV_REDIS_ENDPOINT
@@ -24,8 +25,9 @@ deploy_master:
     - master
   script:
     - rm -rf ./node_modules .serverless ./package-lock.json
-    - cd ./layers/nodejs && rm -rf ./node_modules && npm install && cd ../..
+    - cp .package.json ./layers/nodejs/package.json && cd ./layers/nodejs && rm -rf ./node_modules && npm install && cd ../..
     - npm install
+    - npx gulp default
     - node node_modules/nuxt/bin/nuxt.js build
     - export SLS_DEBUG=*
     - node ./node_modules/serverless/bin/serverless deploy --node_env production --stage prod --rds_endpoint_write $PROD_RDS_ENDPOINT_WRITE --rds_endpoint_read $PROD_RDS_ENDPOINT_READ --rds_user $PROD_RDS_USER --rds_password $PROD_RDS_PASSWORD --rds_database $PROD_RDS_DATABASE --redis_endpoint $PROD_REDIS_ENDPOINT
