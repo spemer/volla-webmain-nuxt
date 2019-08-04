@@ -15,6 +15,7 @@ module.exports = {
     'plugin:nuxt/recommended',
     'plugin:vue/essential'
   ],
+  // required to lint *.vue files
   plugins: [
     'vue'
   ],
