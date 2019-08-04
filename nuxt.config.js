@@ -200,7 +200,7 @@ module.exports = {
     gzip: false
   },
   router: {
-    base: process.env.STAGE,
+    base: '/' + process.env.STAGE,
     // routes: [
     //   {
     //     // ...tosRoutes,
