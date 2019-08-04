@@ -1,6 +1,6 @@
 <template lang="pug">
   div#markdown
-    nuxt.container
+    div.container
 
     div#closebtn
       nuxt-link.global__cta(

@@ -1,6 +1,11 @@
 // import tosRoutes from './assets/js/tosRoutes'
 // import noticeRoutes from './assets/js/noticeRoutes'
 
+const noticesMap = require('./static/contentsMap/notices.js')
+
+const noticeRoutes = (noticesMap.post.map(v => `notices/${v.id}`))
+  .concat(noticesMap.category.map(v => 'notices/' + v.ymd))
+
 module.exports = {
   mode: 'universal',
   /*
@@ -199,14 +204,27 @@ module.exports = {
   performance: {
     gzip: false
   },
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://volla.live',
+    cacheTime: 1000 * 60 * 60,
+    generate: true, // Enable me when using nuxt generate
+    routes: []
+  },
+  generate: {
+    routes: allRoutes
+  },
   router: {
+    mode: 'history',
     // base: `/${process.env.STAGE || 'dev'}`,
-    // routes: [
-    //   {
-    //     // ...tosRoutes,
-    //     // ...noticeRoutes
-    //   }
-    // ]
+    routes: [
+      {
+        path: 'notices/:id',
+        component: () => {
+          return import('~/pages/notices/_id.vue')
+        }
+      }
+    ],
     scrollBehavior(to, from, savedPosition) {
       return { x: 0, y: 0 }
     }
@@ -226,6 +244,7 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/markdownit',
     // https://vuejsdevelopers.com/2018/12/31/vue-nuxt-spa-markdown/
+    '@nuxtjs/sitemap',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',

@@ -9,16 +9,19 @@ module.exports = {
   },
   extends: [
     '@nuxtjs',
-    'prettier',
-    'prettier/vue',
+    // 'prettier',
+    // 'prettier/vue',
     'plugin:prettier/recommended',
-    'plugin:nuxt/recommended'
+    'plugin:nuxt/recommended',
+    'plugin:vue/essential'
   ],
   plugins: [
-    'prettier'
+    'vue'
   ],
   // add your custom rules here
   rules: {
-    'nuxt/no-cjs-in-config': 'off'
+    'nuxt/no-cjs-in-config': 'off',
+    'no-unused-vars': 'off',
+    'require-await': 'off'
   }
 }

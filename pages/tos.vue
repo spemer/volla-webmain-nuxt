@@ -3,9 +3,3 @@
     div#terms
       nuxt.terms-wrapper
 </template>
-
-<script>
-export default {
-  name: 'TosDetails'
-}
-</script>
