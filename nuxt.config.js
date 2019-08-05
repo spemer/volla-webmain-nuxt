@@ -209,14 +209,6 @@ module.exports = {
   router: {
     mode: 'history',
     base: `/${process.env.STAGE || 'dev'}`,
-    routes: [
-      {
-        path: 'notices/:id',
-        component: () => {
-          return import('~/pages/notices/_id.vue')
-        }
-      }
-    ],
     scrollBehavior(to, from, savedPosition) {
       return { x: 0, y: 0 }
     }
