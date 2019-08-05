@@ -286,7 +286,7 @@ module.exports = {
       'vue-clipboard2',
       'vue-progressbar',
       'vue-scrollto',
-      'vue-toasted'
+      'vue2-toast'
     ],
     filenames: {
       app: ({ isDev }) => (isDev ? '[name].[hash].js' : '[chunkhash].js'),
@@ -301,6 +301,9 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
+      }
+      if (ctx.isClient) {
+        config.resolve.alias.vue = 'vue/dist/vue.js'
       }
     }
   }

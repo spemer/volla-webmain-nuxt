@@ -11,7 +11,7 @@
           span.joinus__title--copyEmail(
             v-clipboard:copy="mailTo"
             title="이메일 주소를 복사하려면 클릭하세요"
-            @click="toast('이메일 주소가 복사되었습니다')"
+            @click="copyToast('이메일 주소가 복사되었습니다')"
           ) 이메일 주소 복사하기
             i.far.fa-copy
 
@@ -59,6 +59,12 @@ export default {
       this.stringUpper = '라이브 방송으로 만나는 오프라인 쇼핑,'
       this.stringBelow = `${this.serviceKo}에 지금 바로 입점하세요!`
       this.sellerformLink = '/sellerform-app'
+    }
+  },
+
+  methods: {
+    copyToast(str) {
+      this.$toast(str)
     }
   }
 }

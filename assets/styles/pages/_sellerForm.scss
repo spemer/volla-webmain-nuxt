@@ -39,10 +39,8 @@ $mobile-width: 288px;
 }
 
 #sellerForm {
-  >.container {
-    text-align: center;
-    padding: $grid8x 0 $grid24x;
-  }
+  text-align: center;
+  padding: $grid8x 0 $grid24x;
 
   input[type='radio'],
   input[type='checkbox'] {

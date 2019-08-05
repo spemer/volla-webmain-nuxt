@@ -5,6 +5,7 @@
     Footer
     Kakao
     script(
+      async
       src="https://developers.kakao.com/sdk/js/kakao.min.js"
     )
 </template>

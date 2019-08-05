@@ -8,12 +8,12 @@
 </template>
 
 <script>
+import { globalVar } from '~/assets/js/globalVar'
 const Hero = () => import('~/components/home/Hero')
 const Service = () => import('~/components/home/Service')
 const EasyStart = () => import('~/components/home/EasyStart')
 const Download = () => import('~/components/home/Download')
 const JoinUs = () => import('~/components/home/JoinUs')
-import { globalVar } from '~/assets/js/globalVar'
 
 export default {
   layout(context) {

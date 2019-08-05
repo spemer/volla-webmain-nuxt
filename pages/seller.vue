@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { globalVar } from '~/assets/js/globalVar'
 const Hero = () => import('~/components/seller/Hero')
 const VideoEmbed = () => import('~/components/seller/VideoEmbed')
 const StatsList = () => import('~/components/seller/StatsList')
@@ -17,7 +18,6 @@ const StartWith = () => import('~/components/seller/StartWith')
 const Benefits = () => import('~/components/seller/Benefits')
 const Benefits2 = () => import('~/components/seller/Benefits2')
 const JoinUs = () => import('~/components/home/JoinUs')
-import { globalVar } from '~/assets/js/globalVar'
 
 export default {
   layout(context) {

@@ -8,8 +8,8 @@
 </template>
 
 <script>
-const JoinUs = () => import('~/components/home/JoinUs')
 import { globalVar } from '~/assets/js/globalVar'
+const JoinUs = () => import('~/components/home/JoinUs')
 
 export default {
   head: () => ({

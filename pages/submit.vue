@@ -50,10 +50,10 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex'
+import { globalVar } from '~/assets/js/globalVar'
 const Header = () => import('~/components/Header')
 const Footer = () => import('~/components/Footer')
 const Kakao = () => import('~/components/misc/Kakao')
-import { globalVar } from '~/assets/js/globalVar'
 
 export default {
   components: {

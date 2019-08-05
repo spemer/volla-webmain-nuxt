@@ -21,8 +21,8 @@
 </template>
 
 <script>
-const DownloadBtn = () => import('~/components/misc/DownloadBtn')
 import { globalVar } from '~/assets/js/globalVar'
+const DownloadBtn = () => import('~/components/misc/DownloadBtn')
 
 export default {
   name: 'Hero',

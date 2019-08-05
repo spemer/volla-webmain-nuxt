@@ -1,16 +1,9 @@
 import Vue from 'vue'
-import Toasted from 'vue-toasted'
+import 'vue2-toast/lib/toast.css'
+import Toast from 'vue2-toast'
 
-Vue.use(Toasted)
-
-Vue.mixin({
-  methods: {
-    toast(str) {
-      this.$toasted.show(str, {
-        theme: 'primary',
-        position: 'bottom-center',
-        duration: 2000
-      })
-    }
-  }
+Vue.use(Toast, {
+  type: 'bottom',
+  duration: 2500,
+  wordWrap: true
 })
