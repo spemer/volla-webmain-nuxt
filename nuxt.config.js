@@ -208,7 +208,7 @@ module.exports = {
   },
   router: {
     mode: 'history',
-    // base: `/${process.env.STAGE || 'dev'}`,
+    base: `/${process.env.STAGE || 'dev'}`,
     routes: [
       {
         path: 'notices/:id',
