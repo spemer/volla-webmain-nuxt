@@ -232,7 +232,7 @@ export default {
       ) {
         this.$Progress.start()
 
-        this.toast('요청중입니다. 잠시만 기다려주세요!')
+        this.$toast('요청중입니다. 잠시만 기다려주세요!')
 
         const base = process.env.BASE_URL
         axios

@@ -8,12 +8,28 @@
 </template>
 
 <script>
-import Hero from '~/components/home/Hero'
-import Service from '~/components/home/Service'
-import EasyStart from '~/components/home/EasyStart'
-import Download from '~/components/home/Download'
-import JoinUs from '~/components/home/JoinUs'
 import { globalVar } from '~/assets/js/globalVar'
+
+const Hero = () =>
+  import(
+    /* webpackChunkName: 'components-home-Hero' */ '~/components/home/Hero'
+  )
+const Service = () =>
+  import(
+    /* webpackChunkName: 'components-home-Service' */ '~/components/home/Service'
+  )
+const EasyStart = () =>
+  import(
+    /* webpackChunkName: 'components-home-EasyStart' */ '~/components/home/EasyStart'
+  )
+const Download = () =>
+  import(
+    /* webpackChunkName: 'components-home-Download' */ '~/components/home/Download'
+  )
+const JoinUs = () =>
+  import(
+    /* webpackChunkName: 'components-home-JoinUs' */ '~/components/home/JoinUs'
+  )
 
 export default {
   layout(context) {

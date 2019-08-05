@@ -220,15 +220,7 @@ module.exports = {
   },
   router: {
     mode: 'history',
-    // base: `/${process.env.STAGE || 'dev'}`,
-    routes: [
-      {
-        path: 'notices/:id',
-        component: () => {
-          return import('~/pages/notices/_id.vue')
-        }
-      }
-    ],
+    base: `/${process.env.STAGE || 'dev'}`,
     scrollBehavior(to, from, savedPosition) {
       return { x: 0, y: 0 }
     }
@@ -252,8 +244,16 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    'nuxt-webfontloader'
   ],
+
+  webfontloader: {
+    custom: {
+      families: ['Spoqa Han Sans'],
+      urls: ['https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css']
+    }
+  },
 
   styleResources: {
     scss: [
@@ -274,6 +274,7 @@ module.exports = {
 
   // Plugins to load before mounting the App
   plugins: [
+    { src: '~plugins/kakao.js', ssr: false },
     { src: '~plugins/toast.js', ssr: false },
     { src: '~plugins/userAgent.js', ssr: false },
     { src: '~plugins/dateFormatting.js', ssr: false },
@@ -290,7 +291,7 @@ module.exports = {
       'vue-clipboard2',
       'vue-progressbar',
       'vue-scrollto',
-      'vue-toasted'
+      'vue2-toast'
     ],
     filenames: {
       app: ({ isDev }) => (isDev ? '[name].[hash].js' : '[chunkhash].js'),
@@ -305,6 +306,9 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
+      }
+      if (ctx.isClient) {
+        config.resolve.alias.vue = 'vue/dist/vue.js'
       }
     }
   }

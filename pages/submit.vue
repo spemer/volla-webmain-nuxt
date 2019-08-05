@@ -2,7 +2,6 @@
   div#sellerForm.submit(
     :class="{app: isApp}"
   )
-    Header
     div.container
       div.sbmt
         h1.sellerform__form--title 감사합니다
@@ -44,22 +43,15 @@
         )
           button.global__cta--btn(
           ) 메인으로
-    Footer
-    Kakao
 </template>
 
 <script>
 import { mapState, mapMutations } from 'vuex'
-import Header from '~/components/Header'
-import Footer from '~/components/Footer'
-import Kakao from '~/components/misc/Kakao'
 import { globalVar } from '~/assets/js/globalVar'
 
 export default {
-  components: {
-    Header,
-    Footer,
-    Kakao
+  layout(context) {
+    return 'common'
   },
 
   data: () => ({

@@ -8,8 +8,9 @@
 </template>
 
 <script>
-import JoinUs from '~/components/home/JoinUs'
 import { globalVar } from '~/assets/js/globalVar'
+const JoinUs = () =>
+  import(/* webpackChunkName: 'components-JoinUs' */ '~/components/home/JoinUs')
 
 export default {
   head: () => ({

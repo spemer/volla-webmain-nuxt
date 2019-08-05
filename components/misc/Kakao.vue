@@ -13,7 +13,6 @@
 export default {
   methods: {
     plusFriendChat: () => {
-      window.Kakao.init(process.env.KAKAO_KEY)
       window.Kakao.PlusFriend.chat({
         plusFriendId: process.env.KAKAO_URL
       })

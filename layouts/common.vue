@@ -5,14 +5,18 @@
     Footer
     Kakao
     script(
+      async
       src="https://developers.kakao.com/sdk/js/kakao.min.js"
     )
 </template>
 
 <script>
-import Header from '~/components/Header'
-import Footer from '~/components/Footer'
-import Kakao from '~/components/misc/Kakao'
+const Header = () =>
+  import(/* webpackChunkName: 'components-Header' */ '~/components/Header')
+const Footer = () =>
+  import(/* webpackChunkName: 'components-Footer' */ '~/components/Footer')
+const Kakao = () =>
+  import(/* webpackChunkName: 'components-Kakao' */ '~/components/misc/Kakao')
 
 export default {
   components: {
