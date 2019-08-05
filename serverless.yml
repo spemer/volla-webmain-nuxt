@@ -46,10 +46,10 @@ package:
     - README.md
     - package.json
     - package-lock.json
+    - node_modules/**/*.md
+    - node_modules/**/bin/**
     - node_modules/**
 
-    # - node_modules/**/*.md
-    # - node_modules/**/bin/**
   include:
     - server/**
     - config/index.js
