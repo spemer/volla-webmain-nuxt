@@ -12,7 +12,7 @@ deploy_develop:
     - master
   script:
     - rm -rf ./node_modules .serverless ./package-lock.json
-    - cp .package.json ./layers/nodejs/package.json
+    - cp ./package.json ./layers/nodejs/package.json
     - cd ./layers/nodejs && rm -rf ./node_modules && npm install --production && cd ../..
     - npm install
     - npx gulp default
