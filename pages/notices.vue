@@ -2,11 +2,10 @@
   div#notices
     div.container
       div.notices__wrapper(
-        v-for="(section, index) in Object.keys(noticeEntries)"
-        :key="index"
+        v-for="index in noticeEntries"
       )
         div.notices__list(
-          v-for="entry in noticeEntries[section]"
+          v-for="entry in noticeEntries.notices"
           :key="entry.id"
         )
           div.notices__list--each
@@ -17,10 +16,13 @@
 </template>
 
 <script>
-import NOTICE_ENTRIES from '~/static/json/notices.json'
 import { globalVar } from '~/assets/js/globalVar'
 
 export default {
+  data: () => ({
+    noticeEntries: null
+  }),
+
   head: () => ({
     title: `${globalVar.serviceEn} - 공지사항`,
     titleTemplate: '%s',
@@ -45,10 +47,10 @@ export default {
     ]
   }),
 
-  computed: {
-    noticeEntries: () => {
-      return NOTICE_ENTRIES
-    }
+  created() {
+    this.$axios.get('./json/notices.json').then((res) => {
+      this.noticeEntries = res.data
+    })
   },
 
   methods: {

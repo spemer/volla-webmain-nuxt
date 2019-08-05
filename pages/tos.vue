@@ -1,3 +1,5 @@
 <template lang="pug">
-  div
+  div#tosDetails
+    div#terms
+      nuxt.terms-wrapper
 </template>

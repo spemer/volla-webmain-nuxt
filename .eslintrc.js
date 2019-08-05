@@ -8,11 +8,12 @@ module.exports = {
     parser: 'babel-eslint'
   },
   extends: [
-    "eslint:recommended",
-    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-    "plugin:vue/recommended",
-    "plugin:prettier/recommended"
+    '@nuxtjs',
+    // 'prettier',
+    // 'prettier/vue',
+    'plugin:prettier/recommended',
+    'plugin:nuxt/recommended',
+    'plugin:vue/essential'
   ],
   // required to lint *.vue files
   plugins: [
@@ -20,9 +21,8 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
-    "semi": [2, "never"],
-    "no-console": "off",
-    "vue/max-attributes-per-line": "off",
-    "prettier/prettier": ["error", { "semi": false }]
+    'nuxt/no-cjs-in-config': 'off',
+    'no-unused-vars': 'off',
+    'require-await': 'off'
   }
 }

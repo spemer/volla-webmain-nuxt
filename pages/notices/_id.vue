@@ -1,6 +1,6 @@
 <template lang="pug">
   div#markdown
-    nuxt.container
+    div.container
 
     div#closebtn
       nuxt-link.global__cta(
@@ -12,24 +12,29 @@
 </template>
 
 <script>
-import NOTICE_ENTRIES from '~/static/json/notices.json'
+// https://cmty.app/nuxt/nuxt.js/issues/c341
 import { globalVar } from '~/assets/js/globalVar'
 
 export default {
   head: () => ({
-    title: `${globalVar.serviceEn} - 공지사항`,
-    titleTemplate: '%s'
+    title: `${globalVar.serviceEn} - ${this.noticeTitle}`,
+    titleTemplate: `%s`
   }),
 
-  computed: {
-    noticeEntries: () => {
-      return NOTICE_ENTRIES
-    }
+  data: () => ({
+    noticeEntries: null,
+    noticeTitle: null
+  }),
+
+  created() {
+    this.$axios.get('./json/notices.json').then((res) => {
+      this.noticeEntries = res.data
+    })
   },
 
   mounted() {
     // append date info
-    const arr = this.noticeEntries.notice
+    const arr = this.noticeEntries
 
     const idx = arr.findIndex((item, idx) => {
       return item.id === this.$route.params.id
@@ -39,6 +44,7 @@ export default {
     const setDate = document.createElement('h4')
     getTitle.parentNode.insertBefore(setDate, getTitle.nextSibling)
     setDate.innerHTML = this.dateFormatting(arr[idx].ymd)
+    this.noticeTitle = arr[idx].title
 
     // set _blank every anchor tags
     ;[...document.querySelectorAll('section a')].forEach((anchor) => {

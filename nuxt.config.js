@@ -211,23 +211,33 @@ module.exports = {
   performance: {
     gzip: false
   },
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://volla.live',
+    cacheTime: 1000 * 60 * 60,
+    generate: true, // Enable me when using nuxt generate
+    routes: []
+  },
   router: {
-    base: '/',
+    mode: 'history',
+    // base: `/${process.env.STAGE || 'dev'}`,
     routes: [
       {
-        // ...tosRoutes,
-        // ...noticeRoutes
+        path: 'notices/:id',
+        component: () => {
+          return import('~/pages/notices/_id.vue')
+        }
       }
-    ]
-    // scrollBehavior(to, from, savedPosition) {
-    //   return { x: 0, y: 0 }
-    // }
+    ],
+    scrollBehavior(to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    }
   },
 
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#ff82ab' },
 
   css: ['~assets/styles/style.scss'],
 
@@ -236,6 +246,9 @@ module.exports = {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/markdownit',
+    // https://vuejsdevelopers.com/2018/12/31/vue-nuxt-spa-markdown/
+    '@nuxtjs/sitemap',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
@@ -256,6 +269,7 @@ module.exports = {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    // proxyHeaders: false
   },
 
   // Plugins to load before mounting the App
@@ -272,6 +286,7 @@ module.exports = {
   build: {
     // You can extend webpack config here
     vendor: [
+      'axios',
       'vue-clipboard2',
       'vue-progressbar',
       'vue-scrollto',

@@ -10,7 +10,7 @@ provider:
   timeout: 12
 
   region: ap-northeast-2
-  
+
   environment: # 환경 변수
     STAGE: ${opt:stage, 'dev'}
     NODE_ENV: ${opt:node_env, 'development'}
@@ -19,7 +19,7 @@ provider:
     tags:
       stage: ${self:provider.stage}
       api-name: ${self:provider.apiName}
-      
+
 tracing:
   lambda: true
   apiGateway: true
@@ -46,21 +46,35 @@ package:
     - README.md
     - package.json
     - package-lock.json
-    - node_modules/**/*.md
-    - node_modules/**/bin/**
+    - node_modules/**
+
+    # - node_modules/**/*.md
+    # - node_modules/**/bin/**
   include:
     - server/**
     - config/index.js
     - config/config.js
     - nuxt.config.js
     - .nuxt/**
-    - node_modules/autoprefixer/**
-    - node_modules/babel-runtime/**
-    - node_modules/babel-extract-comments/**
+    # - node_modules/autoprefixer/**
+    # - node_modules/babel-runtime/**
+    # - node_modules/babel-extract-comments/**
+
+layers:
+  webmainNuxt:
+    path: layers
+    name: ${self:provider.stage}-sls-webmain-nuxt-nodemodules
+    compatibleRuntimes:
+      - nodejs10.x
+    description: node_module folder
+    package:
+      excludeDevDependencies: true
 
 functions:
   render:
     handler: server/handler.render # server/handler.js의 render 함수를 가리킴
+    layers:
+      - { Ref: WebmainNuxtLambdaLayer }
     events:
       - http:
           path: '/'
