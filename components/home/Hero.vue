@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import DownloadBtn from '~/components/misc/DownloadBtn'
+const DownloadBtn = () => import('~/components/misc/DownloadBtn')
 import { globalVar } from '~/assets/js/globalVar'
 
 export default {
