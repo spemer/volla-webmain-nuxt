@@ -9,7 +9,8 @@
 
 <script>
 import { globalVar } from '~/assets/js/globalVar'
-const JoinUs = () => import('~/components/home/JoinUs')
+const JoinUs = () =>
+  import(/* webpackChunkName: 'components-JoinUs' */ '~/components/home/JoinUs')
 
 export default {
   head: () => ({

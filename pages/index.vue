@@ -9,11 +9,27 @@
 
 <script>
 import { globalVar } from '~/assets/js/globalVar'
-const Hero = () => import('~/components/home/Hero')
-const Service = () => import('~/components/home/Service')
-const EasyStart = () => import('~/components/home/EasyStart')
-const Download = () => import('~/components/home/Download')
-const JoinUs = () => import('~/components/home/JoinUs')
+
+const Hero = () =>
+  import(
+    /* webpackChunkName: 'components-home-Hero' */ '~/components/home/Hero'
+  )
+const Service = () =>
+  import(
+    /* webpackChunkName: 'components-home-Service' */ '~/components/home/Service'
+  )
+const EasyStart = () =>
+  import(
+    /* webpackChunkName: 'components-home-EasyStart' */ '~/components/home/EasyStart'
+  )
+const Download = () =>
+  import(
+    /* webpackChunkName: 'components-home-Download' */ '~/components/home/Download'
+  )
+const JoinUs = () =>
+  import(
+    /* webpackChunkName: 'components-home-JoinUs' */ '~/components/home/JoinUs'
+  )
 
 export default {
   layout(context) {

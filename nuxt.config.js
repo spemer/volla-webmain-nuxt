@@ -247,7 +247,7 @@ module.exports = {
   webfontloader: {
     custom: {
       families: ['Spoqa Han Sans'],
-      urls: ['http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css']
+      urls: ['https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css']
     }
   },
 
@@ -270,6 +270,7 @@ module.exports = {
 
   // Plugins to load before mounting the App
   plugins: [
+    { src: '~plugins/kakao.js', ssr: false },
     { src: '~plugins/toast.js', ssr: false },
     { src: '~plugins/userAgent.js', ssr: false },
     { src: '~plugins/dateFormatting.js', ssr: false },

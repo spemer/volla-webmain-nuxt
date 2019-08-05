@@ -11,13 +11,35 @@
 
 <script>
 import { globalVar } from '~/assets/js/globalVar'
-const Hero = () => import('~/components/seller/Hero')
-const VideoEmbed = () => import('~/components/seller/VideoEmbed')
-const StatsList = () => import('~/components/seller/StatsList')
-const StartWith = () => import('~/components/seller/StartWith')
-const Benefits = () => import('~/components/seller/Benefits')
-const Benefits2 = () => import('~/components/seller/Benefits2')
-const JoinUs = () => import('~/components/home/JoinUs')
+
+const Hero = () =>
+  import(
+    /* webpackChunkName: 'components-seller-Hero' */ '~/components/seller/Hero'
+  )
+const VideoEmbed = () =>
+  import(
+    /* webpackChunkName: 'components-seller-VideoEmbed' */ '~/components/seller/VideoEmbed'
+  )
+const StatsList = () =>
+  import(
+    /* webpackChunkName: 'components-seller-StatsList' */ '~/components/seller/StatsList'
+  )
+const StartWith = () =>
+  import(
+    /* webpackChunkName: 'components-seller-StartWith' */ '~/components/seller/StartWith'
+  )
+const Benefits = () =>
+  import(
+    /* webpackChunkName: 'components-seller-Benefits' */ '~/components/seller/Benefits'
+  )
+const Benefits2 = () =>
+  import(
+    /* webpackChunkName: 'components-seller-Benefits2' */ '~/components/seller/Benefits2'
+  )
+const JoinUs = () =>
+  import(
+    /* webpackChunkName: 'components-home-JoinUs' */ '~/components/home/JoinUs'
+  )
 
 export default {
   layout(context) {
