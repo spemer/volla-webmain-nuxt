@@ -22,7 +22,7 @@
     "@nuxtjs/sitemap": "^1.2.0",
     "@nuxtjs/style-resources": "^0.1.2",
     "aws-serverless-express": "^3.3.6",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "cross-env": "^5.2.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
